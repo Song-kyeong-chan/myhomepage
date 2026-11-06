@@ -10,8 +10,8 @@ params:
   writingSubtitle: "Essays, project notes, and the occasional detour."
   profile:
     name: "송경찬"
-    jobTitle: ""
-    location: "San Francisco, CA"
+    jobTitle: "대학생"
+    location: "전북 전주시 "
     headshotImage: "myface.jpeg"
     headshotAlt: "프로필 사진"
 ---
