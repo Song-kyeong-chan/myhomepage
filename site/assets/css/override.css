@@ -1,3 +1,4 @@
   .home-headshot {
-    object-position: center top;
+    height: auto;
+    aspect-ratio: auto;
   }
