@@ -61,3 +61,6 @@ exampleSite/public/
 # Assignment documents (not part of the site)
 /2026_과제1_*.pdf
 /2026_과제1_*.docx
+
+# macOS Finder metadata (must come after !/site/** to take effect)
+**/.DS_Store
