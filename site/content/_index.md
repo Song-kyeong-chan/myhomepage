@@ -9,9 +9,9 @@ params:
   writingTitle: "Recent Writing"
   writingSubtitle: "Essays, project notes, and the occasional detour."
   profile:
-    name: "Author"
-    jobTitle: "Job Title"
+    name: "송경찬"
+    jobTitle: ""
     location: "San Francisco, CA"
-    headshotImage: "headshot.jpg"
-    headshotAlt: "Generic grey headshot picture"
+    headshotImage: "myface.jpeg"
+    headshotAlt: "프로필 사진"
 ---
