@@ -8,20 +8,17 @@ title = "송경찬 - 포트폴리오"
     pagerSize = 3
 
 [params]
-    brand = "noesis"
-    description = "noesis Hugo theme for blogs"
+    brand = "송경찬"
+    description = "내 몸 탑재 AI칩을 혼자서 만들 수 있는 그날이 올때까지 공부하기"
     mainSections = ["posts"]
 
     [params.author]
-        name = "Joe Hutchinson"
+        name = "송경찬"
 
     [params.socials]
-        email = "author@example.com"
-        github = "https://github.com/"
-        linkedin = "https://linkedin.com/"
-        instagram = "https://instagram.com/"
-        patreon = "https://patreon.com/"
-        youtube = "https://youtube.com/"
+        email = "rkwhrt57@gmail.com"
+        github = "https://github.com/Song-kyeong-chan"
+        instagram = "https://www.instagram.com/sing_sang___song/"
 
 [markup]
   [markup.highlight]
