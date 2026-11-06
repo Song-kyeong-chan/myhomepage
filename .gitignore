@@ -54,3 +54,10 @@ exampleSite/public/
 **/resources/_gen/
 **/.hugo_build.lock
 /.github-pages-setup-backups/
+
+# Local hugo build output
+/site/public/
+
+# Assignment documents (not part of the site)
+/2026_과제1_*.pdf
+/2026_과제1_*.docx
