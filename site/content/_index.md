@@ -1,16 +1,15 @@
 ---
-title: "Noesis"
-date: 2018-04-27T09:46:15-04:00
-description: "A refined theme with a calm editorial aesthetic, balancing generous whitespace, subtle typography, and understated visual depth."
+title: "스마트팜과 AI를 함께 공부 중인 송경찬입니다."
+description: "작은 기기 안에서 AI를 효율적으로 돌리는 소프트웨어를 만드는 것이 목표입니다. 지금은 기초 수학, 프로그래밍 언어, 알고리즘, AI로 나눠 차근차근 공부히고 있습니다."
 params:
-  eyebrow: "hugo theme"
+  eyebrow: "portfolio"
   about: |
-    Ideal for engineering blogs, research notes, personal essays, digital gardens, and portfolio-driven sites, Noesis gives content room to breathe while maintaining a polished, professional feel.
-  writingTitle: "Recent Writing"
-  writingSubtitle: "Essays, project notes, and the occasional detour."
+    전북대학교 스마트팜학과에 재학 중이며, 컴퓨터인공지능학부 복수전공을 진행중에 있습니다. 
+  writingTitle: "포트폴리오"
+  writingSubtitle: "프로젝트, 자격증, 수업실습, 개인학습기록"
   profile:
     name: "송경찬"
-    jobTitle: "대학생"
+    jobTitle: "스마트팜학과 · 컴퓨터인공지능학부 복수전공"
     location: "전북 전주시 "
     headshotImage: "myface.jpeg"
     headshotAlt: "프로필 사진"
