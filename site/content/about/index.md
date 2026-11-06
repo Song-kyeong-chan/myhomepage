@@ -29,3 +29,15 @@ AI가 사람의 몸의 필수기능 부분에 더 가까워질수록 인간이 �
 1. 논문 속 수식을 보고 어떤 선형대수 개념이 쓰였는지 바로 이해할 수 있는 수준까지 공부하기
 2. 라즈베리파이 위에서 AI모델을 돌려 실제로 쓸 수 있는 소프트웨어 설계하기
 3. 하드웨어를 좀 더 직관적으로 이해할 수 있도록 C++와 CUDA 공부하기
+
+## 기술과 사용 경험
+
+| 기술 | 실제로 사용한 곳 |
+|---|---|
+| Kotlin · Jetpack Compose | [LifeSync](https://github.com/Song-kyeong-chan/lifesync-android) 안드로이드 앱의 화면과 기능 구현 (모바일프로그래밍 최종 프로젝트) |
+| Room · Retrofit2 | LifeSync 앱의 로컬 데이터 저장과 서버 통신 |
+| Python · FastAPI | [LifeSync 서버](https://github.com/Song-kyeong-chan/lifesync-server)의 AI 채팅·데이터 동기화 API |
+| Gemini API | LifeSync의 AI 채팅과 예약 AI 브리핑 기능 |
+| AWS EC2 · S3 | LifeSync 서버 배포와 일기 사진 저장 |
+| Python · NumPy · pandas · TensorFlow | AICE 자격증을 준비하며 머신러닝·딥러닝 모델 코드 작성, Kaggle 데이터셋으로 작물표현형 분석 실습 |
+| Git · Hugo · GitHub Actions | 이 포트폴리오 사이트 구축과 자동 배포 |
