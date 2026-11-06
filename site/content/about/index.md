@@ -4,7 +4,6 @@ date = "2026-11-06"
 displayInMenu = true
 displayInList = false
 +++
-## 소개
 안녕하세요, 전북대학교 스마트팜학과에 재학 중이며 컴퓨터인공지능학부를 복수전공하고 있는 송경찬입니다.
 
 ## 관심 분야
