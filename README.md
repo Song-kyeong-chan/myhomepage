@@ -1,239 +1,151 @@
-# noesis
+# 송경찬 개인 포트폴리오
 
-[![Validate Generated Files](https://github.com/josephhutch/noesis/actions/workflows/main.yml/badge.svg)](https://github.com/josephhutch/noesis/actions/workflows/main.yml)
+Hugo와 Noesis 테마로 만든 개인 소개 웹사이트입니다.
+`main` 브랜치에 push하면 GitHub Actions가 사이트를 빌드해 GitHub Pages에 자동으로 배포합니다.
 
-Noesis is a Hugo theme for blogs that emphasizes motion, depth, and material as design elements.  Noesis presents your content in a clean interface that highlights good photography and writing.
+| 항목 | 주소 |
+|---|---|
+| 공개 사이트 | https://song-kyeong-chan.github.io/myhomepage/ |
+| 저장소 | https://github.com/Song-kyeong-chan/myhomepage |
+| 배포 기록 | https://github.com/Song-kyeong-chan/myhomepage/actions |
 
-## Features
- - It's **Fast**! PageSpeed scores consistently between 94-100
- - Fully **Responsive Design** allowing your site to look good on any size screen
- - Responsive image render hooks and shortcodes with WebP output
- - **Accessibility** is a priority, making your site easily navigated by screen readers
- - Category pages that group similar articles are automatically generated and added to the menu
- - Customizable website background image and home button image
- - Hugo/Chroma integration provides **beautiful syntax highlighting** for most programming languages and file formats
- - Add **math symbols and equations** to your blog posts using LaTeX
- - **Google Analytics** and **Disqus** integration
+## 폴더 구조
 
-![Noesis Hugo theme screenshot](https://raw.githubusercontent.com/josephhutch/noesis/main/images/screenshot.jpg)
-
-## Installation
-Noesis requires Hugo `0.157.0` or later.
-
-In the root directory of your Hugo Project, clone the noesis repo into the themes directory.
-
-```shell session
-git clone https://github.com/josephhutch/noesis.git themes/noesis
+```text
+.
+├── site/                      ← 실제 사이트 (여기만 수정)
+│   ├── hugo.toml              ← 사이트 설정 (제목, 언어, 소셜 링크)
+│   ├── pages.json             ← 배포용 설정 (baseURL, 테마 위치)
+│   ├── content/               ← 글과 페이지
+│   ├── layouts/               ← 테마 템플릿을 덮어쓴 파일 (한국어화 등)
+│   ├── assets/css/override.css← 테마 스타일 보정
+│   ├── assets/js/core.js      ← 모바일 메뉴 스크립트 (한국어 버튼 이름)
+│   └── themes/template/       ← Noesis 테마 사본 (원본 README·라이선스 포함, 수정하지 않음)
+├── .github/workflows/hugo-pages.yml ← 자동 빌드·배포 워크플로
+├── .github/pages_build.py     ← 워크플로가 실행하는 빌드 스크립트
+├── layouts/, assets/, exampleSite/ … ← 테마 원본 보관용 (빌드에 사용하지 않음)
+├── LICENSE.md                 ← 테마 라이선스 (MIT)
+└── THIRD_PARTY_NOTICES.md     ← 테마에 포함된 외부 자료 고지
 ```
 
-## Usage
-### Website Configuration
-Customize the look and feel of Noesis through your `hugo.toml` file. Start with this shape and remove settings you do not need.
+## 실행 환경
 
-```toml
-baseURL = "https://example.com/"
-locale = "en-US"
-title = "Your site title"
-theme = "noesis"
+| 도구 | 버전 | 용도 |
+|---|---|---|
+| Hugo extended | 0.169.0 (로컬) / 0.167.0 (Actions) | 사이트 빌드 |
+| Git | 2.39 | 버전 관리 |
+| macOS | Darwin 24 (Apple Silicon) | 작업 환경 |
 
-[pagination]
-  pagerSize = 10
+Actions에서 쓰는 Hugo 버전은 `.github/workflows/hugo-pages.yml`의 `HUGO_VERSION`에 고정되어 있습니다.
 
-[services]
-  [services.googleAnalytics]
-    id = "Your Google Analytics measurement ID - optional"
-  [services.disqus]
-    shortname = "Your shortname for Disqus - optional"
+## 설치
 
-[params]
-  brand = "The name that is displayed in the top left of the website - optional, title is fallback"
-  description = "The website's description"
-  mainSections = ["posts"]
-  # cardDescriptionLength = 160 # Optional character limit for card descriptions
-  # cardReadMoreText = "Read" # Optional label for the link at the bottom of each card
+```bash
+# Hugo extended 설치 (macOS, Homebrew)
+brew install hugo
+hugo version          # 출력에 "+extended"가 있는지 확인
 
-  [params.appearance]
-    backgroundImage = "Path, within the 'assets' folder, of the image used for the page background - optional"
-    maskIconColor = "Color of the Safari pinned tab icon - optional, defaults to #22201d"
-
-  [params.navigation]
-    rssInMenu = true # Show an RSS link in the nav menu and footer - optional
-
-  [params.socials]
-    email = "Email address or mailto: URL, icon link will be included in the home page rail - optional"
-    discord = "URL to your Discord profile or community - optional"
-    facebook = "URL to your Facebook account, icon link will be included in the rail and footer - optional"
-    flickr = "URL to your Flickr account, icon link will be included in the rail and footer - optional"
-    github = "URL to your GitHub account, icon link will be included in the rail and footer - optional"
-    instagram = "URL to your Instagram account - optional"
-    linkedin = "URL to your LinkedIn account, icon link will be included in the rail and footer - optional"
-    patreon = "URL to your Patreon account - optional"
-    pinterest = "URL to your Pinterest account - optional"
-    reddit = "URL to your Reddit account - optional"
-    snapchat = "URL to your Snapchat account - optional"
-    soundCloud = "URL to your SoundCloud account, icon link will be included in the rail and footer - optional"
-    spotify = "URL to your Spotify account, icon link will be included in the rail and footer - optional"
-    tikTok = "URL to your TikTok account - optional"
-    tumblr = "URL to your Tumblr account, icon link will be included in the rail and footer - optional"
-    twitch = "URL to your Twitch account, icon link will be included in the rail and footer - optional"
-    twitter = "URL to your X/Twitter account, icon link will be included in the rail and footer - optional"
-    x = "URL to your X account, icon link will be included in the rail and footer - optional"
-    vimeo = "URL to your Vimeo account, icon link will be included in the rail and footer - optional"
-    whatsapp = "URL to your WhatsApp contact or channel - optional"
-    youtube = "URL to your YouTube account, icon link will be included in the footer - optional"
-
-  [params.author]
-    name = "Author name for RSS, the author meta tag, and structured data - optional"
-    email = "Author email for RSS metadata - optional"
-    jobTitle = "Job title for structured data - optional"
-    worksFor = "Employer name for structured data - optional"
-    location = "Location for structured data - optional"
-
-[markup]
-  [markup.highlight]
-    style = "evergarden"
+# 저장소 받기
+git clone https://github.com/Song-kyeong-chan/myhomepage.git
+cd myhomepage
 ```
 
-The `title` parameter is used for each page title, the title that search engines display in search results. If you would like the title shown in the top left of the page to be different from the page title, use the `brand` parameter. For instance, a site could use `Joe Hutchinson` as its title and `joehutch` as its brand.
+## 로컬 미리보기
 
-Find your `locale` [here](https://www.metamodpro.com/browser-language-codes).
-
-The homepage hero title and description come from `content/_index.md`, along with the optional `about`, `writingTitle`, and `writingSubtitle` front matter fields (see [Homepage content](#homepage-content) below). Use this content file for the main editorial positioning of the site. The optional `params.profile.name`, `params.profile.jobTitle`, and `params.profile.location` homepage front matter fields appear as compact metadata beneath the hero description. The home page writing list uses Hugo's `params.mainSections`, defaulting to the section with the most pages when you do not set it. The rail's topic links are generated from post `categories`, so do not disable Hugo's `taxonomy` or `term` pages if you want those links to resolve. Social links under `params.socials` appear in the rail and footer when configured. Icons are rendered as CSS masks so the theme can recolor them for dark mode. If you need a custom dark-mode shape, add `assets/icons/<service>-dark.svg`; if an icon is missing, the theme falls back to a generic link icon.
-
-The `appearance.backgroundImage` parameter gives you the ability to customize the look of your site further. Noesis is designed to look best with a subtle tiling image for the background. If no background image is specified, the background will be a solid gray color.
-
-Noesis is tuned against Hugo's `evergarden` Chroma style. If you want to change the highlighter theme you can specify a different one from [this list](https://xyproto.github.io/splash/docs/all.html). To configure the syntax highlighter further, such as adding line numbers, check out [this Hugo doc section](https://gohugo.io/getting-started/configuration-markup#highlight).
-
-That is the only configuration required at the site level! You can now begin writing content for your site.
-
-Card descriptions are shown in full by default. Set `params.cardDescriptionLength` to a positive character limit to truncate descriptions in home, archive, topic, and next-article cards. Omit the setting or use `0` to disable truncation. When a post has no description, cards use Hugo's generated summary.
-
-#### Favicons
-Noesis supports a large array of favicon formats. Simply add your favicons with the correct file names to the root folder of your site (put them in the static folder). The favicon file names correspond to the files generated by the [real favicon generator](https://realfavicongenerator.net/).
-
- - favicon.ico
- - favicon-16x16.png
- - favicon-32x32.png
- - apple-touch-icon.png
- - android-chrome-192x192.png
- - android-chrome-384x384.png
- - mstile-150x150.png
- - safari-pinned-tab.svg
- - browserconfig.xml
- - site.webmanifest
-
-### Creating content
-Make a new blog post by executing `hugo new posts/postnamehere/index.md` in your shell. At the top of the new markdown file is the front matter. The front matter is the page's metadata that determines how Hugo and Noesis generate the HTML for your post. Below you can find the front matter that Noesis uses and what each parameter means.
-
-```yaml
----
-title: "The title of the post"
-date: date the post was generated (automatically generated)
-description: "Description of the post (displayed in the post's card)"
-categories: ["Add comma separated categories here", "another category"]
-toc: if the post should include a table of contents (true, false)
-displayInMenu: if the post should show up in the navigation menu (true, false)
-displayInList: if the post should be listed on the home page and category pages (true, false)
-draft: if the post is a draft (true, false)
-resources:
-- name: featuredImage
-  src: "Filename of the post's featured image, used as the card image and the image at the top of the article"
-  params:
-    description: "Description for the featured image, used as the alt text"
-    attribution:
-      name: "Name of person to attribute image to"
-      link: "optional URL to persons site"
----
+```bash
+cd site
+hugo server --config hugo.toml,pages.json --renderToMemory
 ```
 
-The `displayInMenu` and `displayInList` parameters are used to determine where your content is displayed. Posts typically have displayInMenu set to false so that the post is not a menu option, and displayInList set to true so it shows up on the homepage's list of posts and in category page lists. An About Me page, on the other hand, would have displayInMenu set to true and displayInList set to false.  That will allow the About Me page to be accessible from the menu but not displayed in the homepage's list of posts.
+브라우저에서 http://localhost:1313/myhomepage/ 를 엽니다. 파일을 저장하면 화면이 자동으로 새로고침됩니다.
 
-The `categories` parameter is used to group similar posts in category pages. Category pages are accessible from the menu and list all posts within the same category.
+- `--config hugo.toml,pages.json`: 사이트 설정과 배포 설정을 함께 읽습니다. 빠뜨리면 테마를 찾지 못합니다.
+- `--renderToMemory`: 결과물을 디스크에 쓰지 않아 `site/public/`이 생기지 않습니다.
+- `site/assets/` 아래에 **새 폴더**를 만들었다면 서버를 `Ctrl + C`로 끄고 다시 실행해야 반영됩니다.
 
-Add an interesting description and a good image to each post to get the most value from this theme.
+## 빌드만 확인하기
 
-Noesis takes advantage of [page bundles](https://gohugo.io/content-management/page-bundles/) to optimize your images for your site.  This may require you to update the way your content is structured, also see [content organization](https://gohugo.io/content-management/organization/).  Use the `image` and `smallimg` shortcodes to take full advantage of image optimization.  Also, the `featuredImage` resource must exist in the post's page bundle.
-
-Posts are written in markdown. You can find how to write in markdown from this [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
-
-#### Shortcodes
-Shortcodes extend markdown to make writing easier and more powerful.
-
-`raw` allows for adding content that Hugo will pass through unmodified. Raw is useful for adding html to your content or **adding math equations in LaTeX**.
-
-```html
-{{< raw >}}
-\[ S(x) = \frac{1}{1+e^{-x}} \]
-{{< /raw >}}
+```bash
+cd site
+hugo --config hugo.toml,pages.json
 ```
 
-`image` adds a responsive, optimized image from the current page bundle. The shortcode creates resized source images, adds a WebP source, and includes intrinsic image dimensions to reduce layout shift. Image just needs the src and alt parameters.
+결과물은 `site/public/`에 생기며 `.gitignore`로 제외되어 커밋되지 않습니다.
 
-```html
-<!--- Will display optimized WebP on supported browsers with a source-format fallback -->
-{{< image src="awesome.jpg" alt="An awesome image that will use webp when possible. Much faster!" >}}
+## 내용 수정하기
+
+| 바꾸고 싶은 것 | 파일 |
+|---|---|
+| 사이트 제목, 소셜 링크(GitHub·Instagram·메일) | `site/hugo.toml` |
+| 홈 화면 제목·소개·프로필 사진 | `site/content/_index.md`, `site/content/myface.jpeg` |
+| 소개 페이지 (학력, 관심 분야, 학습 목표, 기술) | `site/content/about/index.md` |
+| 성과 페이지 설명과 자격증 표 | `site/content/posts/_index.md` |
+| LifeSync 활동 글과 캡처 | `site/content/posts/lifesync/` |
+| 화면 스타일 보정 | `site/assets/css/override.css` |
+| 메뉴·홈·목록·404 등 화면 문구 | `site/layouts/` 아래 같은 이름의 파일 |
+
+### 새 활동 글 추가
+
+```text
+site/content/posts/새-글-이름/
+├── index.md       ← 글 본문 (front matter에 title, date, description)
+└── image.jpg      ← 글에 쓰는 이미지 (영문 소문자 파일명)
 ```
 
-`smallimg` allows you to add smaller optimized images to your posts that aren't stretched to be as wide as the content area.  Smallimg takes the parameters src, alt, smartfloat (optional), width (optional, in pixels only), and clear (optional). The smartfloat parameter can be set to right or left, and it floats the image to the right or left on big enough screens. The clear parameter allows you to clear a previous float which is helpful if you are using multiple smallimgs close to each other.
+본문에서 이미지는 `![이미지 설명](image.jpg)`로 넣습니다. 대괄호 안의 설명이 대체 텍스트(alt)가 됩니다.
 
-```html
-<!--- smallimg also generates a WebP source and source-format fallback -->
-{{< smallimg src="smile.png" alt="A big beautiful smile" smartfloat="left" width="100px" clear="true" >}}
+## 배포하기
+
+```bash
+git add <수정한 파일>
+git commit -m "무엇을 왜 바꿨는지"
+git push
 ```
 
-Regular Markdown images that point to page-bundle or global assets are optimized with the same image pipeline through Hugo render hooks.
+`main`에 push하면 워크플로가 자동으로 실행됩니다.
 
-### Further Customization
-#### Homepage content
-Keep site-wide settings, shared social links, and RSS author metadata in `hugo.toml`. Keep homepage copy and the homepage-only profile in `content/_index.md`. Standard Hugo fields (`title`, `date`, and `description`) stay at the top level; theme-specific fields belong under `params`. The site title names the publication, while the homepage title is its hero heading. The site description is a metadata fallback; the homepage description supplies its own introduction and metadata.
+1. `.github/pages_build.py --dependencies`: 빌드에 필요한 준비
+2. `.github/pages_build.py --build`: `site/`를 빌드해 루트 `public/`에 결과물 생성
+3. GitHub Pages에 결과물 배포
 
-Define the profile in the homepage’s `params.profile` mapping, as shown below. For existing sites, the theme continues to read `[params.profile]` from `hugo.toml` when the homepage has no profile mapping; no migration is required. A homepage profile replaces the entire legacy profile, and `profile: {}` explicitly hides it. An omitted, empty, or whitespace-only eyebrow renders no eyebrow element.
+## 배포 확인
 
-```yaml
----
-title: "This is the main heading text in big letters"
-date: the date
-description: "This is the subtext below the main heading in smaller letters"
-params:
-  eyebrow: "Notes & Essays"
-  profile:
-    name: "Name shown beneath the hero - optional"
-    jobTitle: "Professional role - optional"
-    location: "Location - optional"
-    headshotImage: "headshot.jpg" # Relative to content/_index.md; optional
-    headshotAlt: "Description of the portrait"
-  about: |
-    Short introduction shown in the home page about rail.
-    Use this for context beyond the name, role, and location shown in the hero.
-  writingTitle: "Recent writing" # Optional; defaults to Recent Posts
-  writingSubtitle: "Essays, field notes, and reflections." # Optional
----
+1. 저장소의 **Actions** 탭에서 방금 push한 커밋 이름의 실행을 엽니다.
+2. `build`와 `deploy`가 모두 초록색 체크인지 확인합니다. 빨간색이면 실패한 단계를 눌러 로그를 확인합니다.
+3. 공개 사이트를 열어 변경 내용을 확인합니다. 예전 화면이 보이면 `Cmd + Shift + R`로 강력 새로고침합니다.
+
+터미널에서 확인할 수도 있습니다 (GitHub CLI 필요).
+
+```bash
+gh run list -L 3
 ```
 
-Place the homepage portrait alongside `content/_index.md` (for example, `content/headshot.jpg`) and set `params.profile.headshotImage` to its filename. The theme first looks for a homepage page resource, then falls back to `assets` for existing sites using paths such as `img/headshot.jpg`. Both sources use the same responsive image processing and alt text.
+## 출처와 라이선스
 
-To change the heading and subtext at the top of other list pages, add an `_index.md` file in the folder that the list page is generated from with the `title`, `date`, and `description` fields above.
-#### Overriding CSS
-To override CSS, you should create file `project_root/assets/css/override.css` and place all your CSS inside it. This file will be merged with standard CSS when the site is generated.
+### 외부 자료
 
-#### Custom Meta Tags
+| 자료 | 출처 | 라이선스 |
+|---|---|---|
+| Noesis Hugo 테마 | https://github.com/josephhutch/noesis (Joe Hutchinson) | MIT, `LICENSE.md` |
+| KaTeX, normalize.css | 테마에 포함 | MIT, `THIRD_PARTY_NOTICES.md` |
+| Source Sans 3 글꼴 | 테마에 포함 | SIL OFL 1.1 |
+| GitHub Pages 배포 스크립트 | 수업 제공 `prepare_github_pages.py`로 생성 | 수업 자료 |
 
-Noesis includes Hugo's embedded Open Graph and Twitter Card partials by default, plus JSON-LD structured data. The structured data describes the author as a `Person` (from `params.author`, falling back to the homepage profile, with social links as `sameAs`), the home page as a `WebSite`, and dated pages as a `BlogPosting`. Set `schemaType` in a page's front matter to override its type; for example, `schemaType: "ProfilePage"` on an About page marks the author as the page's subject. You can add optional custom tags by adding `project_root/layouts/_partials/meta-tags.html`.
-Refer to [/exampleSite/layouts/_partials](/exampleSite/layouts/_partials) for sample meta configs.
+### 직접 만든 자료
 
-## Helpful Links
-[Noesis Blog Post](https://www.joehutch.com/posts/noesis-theme/) - See noesis in action and learn more about the theme
+- 소개·학력·자격증·활동 글의 내용과 사실 정보
+- 프로필 사진 (`site/content/myface.jpeg`)
+- LifeSync 활동 글 및 앱 실행 화면 캡처
+- 메뉴 구성, 성과 페이지 구역 나누기 등 사이트 구성 결정
 
-[Hugo Documentation](https://gohugo.io/documentation/) - Learn how to use Hugo
+### AI 도움을 받은 부분
 
-[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) - Write in markdown like a pro
+AI 도구 Claude Code를 사용했으며, 모든 결과는 직접 검토하고 미리보기와 공개 사이트에서 확인한 뒤 커밋했습니다.
 
-[Latex Math Documentation](https://en.wikibooks.org/wiki/LaTeX/Mathematics) - Learn math typesetting with LaTeX (powered by KaTeX)
+| 부분 | AI가 한 일 | 본인이 한 일 |
+|---|---|---|
+| 화면 문구 한국어화 (i18n) | 바꿀 문구 위치와 명령 제안 | 적용, 화면 확인 |
+| 스타일 보정 (`override.css`) | 사진 잘림·표 넘침 원인 분석과 CSS 제안 | 적용 여부 결정, 화면 폭별 확인 |
+| 화면 조정(반응형) | 1440·768·390px 화면 폭별 자동 점검으로 모바일 표 넘침 발견, 줄바꿈 CSS 제안 | 적용, 화면 폭별 재확인 |
+| README | 초안 작성 | 명령 실행으로 검증, 수정 |
 
-## Contributing
-Noesis is actively maintained and I welcome you to help make it better! Contributions in the way of new features, documentation improvements, bug fixes, and feature requests are appreciated. Please make an individual pull-request/issue for each suggestion.  PRs are tested in GitHub Actions to ensure the html and css generated from the example site are valid.
-
-## License
-MIT © Joe Hutchinson
-
-Bundled third-party frontend assets are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
