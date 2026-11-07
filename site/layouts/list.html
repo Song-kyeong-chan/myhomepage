@@ -19,10 +19,7 @@
       {{- end }}
       {{- $isPosts := and .IsSection (eq .Section "posts") }}
       {{ if $isPosts -}}
-      <nav class="section-jump" aria-label="성과 바로가기">
-        <a href="#projects">프로젝트</a>
-        <a href="#certificates">자격증</a>
-      </nav>
+   
       <h2 id="projects" class="section-heading">프로젝트</h2>
       {{- else }}
       {{ with .Content -}}
