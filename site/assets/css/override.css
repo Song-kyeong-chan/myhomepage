@@ -18,3 +18,12 @@
 .section-extra td {
   overflow-wrap: anywhere;
 }
+
+/* 하단 메뉴: 칸(grid) 대신 한 줄로 모으고, 좁으면 자연스럽게 줄바꿈 */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 0.85rem 2rem;
+}
