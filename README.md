@@ -20,10 +20,11 @@ Hugo와 Noesis 테마로 만든 개인 소개 웹사이트입니다.
 │   ├── layouts/               ← 테마 템플릿을 덮어쓴 파일 (한국어화 등)
 │   ├── assets/css/override.css← 테마 스타일 보정
 │   ├── assets/js/core.js      ← 모바일 메뉴 스크립트 (한국어 버튼 이름)
-│   └── themes/template/       ← Noesis 테마 사본 (원본 README·라이선스 포함, 수정하지 않음)
+│   └── themes/template/       ← Noesis 테마 원본 (README·라이선스 포함, 수정하지 않음)
 ├── .github/workflows/hugo-pages.yml ← 자동 빌드·배포 워크플로
 ├── .github/pages_build.py     ← 워크플로가 실행하는 빌드 스크립트
-├── layouts/, assets/, exampleSite/ … ← 테마 원본 보관용 (빌드에 사용하지 않음)
+├── .github-pages.json         ← 빌드 스크립트가 읽는 배포 설정
+├── prepare_github_pages.py    ← 수업 제공 배포 준비 도구 (최초 1회 실행)
 ├── LICENSE.md                 ← 테마 라이선스 (MIT)
 └── THIRD_PARTY_NOTICES.md     ← 테마에 포함된 외부 자료 고지
 ```
