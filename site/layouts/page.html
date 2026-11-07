@@ -9,7 +9,7 @@
         <header class="post-header">
           {{ if or (isset .Params "date") (isset .Params "categories") -}}
           <div class="post-meta">
-            {{ if isset .Params "date" }}<p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time></p>{{ end }}
+            {{ if isset .Params "date" }}<p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006년 1월 2일" }}</time></p>{{ end }}
             {{ if isset .Params "categories" }}<p>{{ range $index, $category := .Params.categories }}{{ if $index }}, {{ end }}{{ with $.Site.GetPage (printf "/categories/%s" ($category | urlize)) }}<a href="{{ .RelPermalink }}">{{ $category }}</a>{{ else }}{{ $category }}{{ end }}{{ end }}</p>{{ end }}
           </div>
           {{- end }}

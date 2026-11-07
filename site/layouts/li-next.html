@@ -13,7 +13,7 @@
   <article class="card-body">
     <div class="card-subtext muted-text">
       <p>다음 글</p>
-      {{ if isset .Params "date" }}<p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time></p>{{ end }}
+      {{ if isset .Params "date" }}<p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006년 1월 2일" }}</time></p>{{ end }}
     </div>
     <h2 class="card-title">{{ .Title | markdownify }}</h2>
     <p class="card-text">{{ partial "card-description.html" . }}</p>
