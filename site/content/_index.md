@@ -5,7 +5,7 @@ params:
   eyebrow: "portfolio"
   about: |
     전북대학교 스마트팜학과에 재학 중이며, 컴퓨터인공지능학부 복수전공을 진행중에 있습니다. 
-  writingTitle: "포트폴리오"
+  writingTitle: "성과"
   writingSubtitle: "프로젝트, 자격증, 수업실습, 개인학습기록"
   profile:
     name: "송경찬"
