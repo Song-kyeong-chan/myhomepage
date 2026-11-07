@@ -7,3 +7,30 @@
 .post th, .post td {
   overflow-wrap: anywhere;
 }
+/* 성과 페이지: 프로젝트·자격증 바로가기와 구역 제목 */
+.section-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 2rem;
+  font-family: var(--font-ui);
+}
+
+.section-jump a {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.section-heading,
+.section-extra h2 {
+  margin: 2.5rem 0 1rem;
+  font-family: var(--font-ui);
+  scroll-margin-top: 6rem;
+}
+
+.section-extra td {
+  overflow-wrap: anywhere;
+}
