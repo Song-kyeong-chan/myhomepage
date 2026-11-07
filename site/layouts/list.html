@@ -17,10 +17,19 @@
         {{ if .Description }}<p class="list-header-subtext">{{ .Description }}</p>{{ else if eq .Kind "term" }}<p class="list-header-count">{{ len $pages }} {{ if eq (len $pages) 1 }}article{{ else }}articles{{ end }}</p>{{ end }}
       </header>
       {{- end }}
+      {{- $isPosts := and .IsSection (eq .Section "posts") }}
+      {{ if $isPosts -}}
+      <nav class="section-jump" aria-label="성과 바로가기">
+        <a href="#projects">프로젝트</a>
+        <a href="#certificates">자격증</a>
+      </nav>
+      <h2 id="projects" class="section-heading">프로젝트</h2>
+      {{- else }}
       {{ with .Content -}}
       <section class="list-header-content">
         {{ . }}
       </section>
+      {{- end }}
       {{- end }}
       <div class="post-list">
         {{- range $paginator.Pages -}}
@@ -33,6 +42,11 @@
         {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="pagination-older pagination-text">이전 글 &rarr;</a>{{ end }}
       </nav>
       {{- end }}
+      {{ if $isPosts }}{{ with .Content -}}
+      <section class="section-extra">
+        {{ . }}
+      </section>
+      {{- end }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
     {{ partial "scripts.html" . }}
