@@ -9,6 +9,7 @@ title = "송경찬 - 포트폴리오"
 
 [params]
     brand = "송경찬"
+    cardReadMoreText = "자세히 보기"
     description = "내 몸 탑재 AI칩을 혼자서 만들 수 있는 그날이 올때까지 공부하기"
     mainSections = ["posts"]
 
