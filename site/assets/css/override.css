@@ -2,3 +2,8 @@
     height: auto;
     aspect-ratio: auto;
   }
+
+/* 좁은 화면에서도 글자가 밖으로 안나가도록 줄바꿈 넣기 */
+.post th, .post td {
+  overflow-wrap: anywhere;
+}
