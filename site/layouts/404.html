@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale }}" dir="{{ or .Site.Language.Direction "ltr" }}">
+  {{ partial "head.html" . }}
+  <body class="list-body">
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+    {{ partial "nav-bar.html" . }}
+    <main id="main-content" class="site-main list-main side-gutter" tabindex="-1">
+      <header class="list-header">
+        <p class="section-kicker">404</p>
+        <h1 class="list-header-title">페이지를 찾을 수 없습니다</h1>
+        <p class="list-header-subtext">주소가 바뀌었거나 삭제된 페이지입니다. 주소를 다시 확인해 주세요.</p>
+      </header>
+      <nav class="pagination-nav" aria-label="홈으로 돌아가기">
+        <a href="{{ .Site.Home.RelPermalink }}" class="pagination-text">&larr; 홈으로 돌아가기</a>
+      </nav>
+    </main>
+    {{ partial "footer.html" . }}
+    {{ partial "scripts.html" . }}
+  </body>
+</html>
